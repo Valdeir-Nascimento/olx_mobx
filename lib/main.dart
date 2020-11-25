@@ -6,6 +6,7 @@ import 'package:olxmobx/controllers/user_manager_controller.dart';
 import 'package:olxmobx/pages/base/base_page.dart';
 import 'package:olxmobx/pages/category/category_page.dart';
 import 'package:olxmobx/repositories/category_repository.dart';
+import 'package:olxmobx/repositories/ibge_repository.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
 void main() async {
@@ -13,6 +14,7 @@ void main() async {
   await initializeParse();
   setupLocator();
   runApp(MyApp());
+  IBGERepository().getEstados().then((value) => print(value));
 
   // final category = ParseObject('Categories')
   //   ..set<String>('Title', 'Meias')
@@ -64,7 +66,6 @@ void setupLocator() {
   GetIt.I.registerSingleton(BaseController());
   GetIt.I.registerSingleton(UserManagerController());
   GetIt.I.registerSingleton(CategoryController());
-
 }
 
 class MyApp extends StatelessWidget {
@@ -74,11 +75,10 @@ class MyApp extends StatelessWidget {
       title: 'OLX Clone',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.purple,
-        scaffoldBackgroundColor: Colors.purple,
-        appBarTheme: AppBarTheme(elevation: 0),
-        cursorColor: Colors.purple
-      ),
+          primarySwatch: Colors.purple,
+          scaffoldBackgroundColor: Colors.purple,
+          appBarTheme: AppBarTheme(elevation: 0),
+          cursorColor: Colors.purple),
       home: BasePage(),
       // home: CategoryPage(),
     );
