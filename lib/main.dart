@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:olxmobx/controllers/base_controller.dart';
+import 'package:olxmobx/controllers/category_controller.dart';
 import 'package:olxmobx/controllers/user_manager_controller.dart';
 import 'package:olxmobx/pages/base/base_page.dart';
+import 'package:olxmobx/pages/category/category_page.dart';
 import 'package:olxmobx/repositories/category_repository.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
@@ -56,15 +58,13 @@ Future<void> initializeParse() async {
     autoSendSessionId: true,
     debug: true,
   );
-
-  final categorias = await CategoryRepository().getCategorias();
-  print(categorias);
-
 }
 
 void setupLocator() {
-  GetIt.I.registerSingleton( BaseController());
-  GetIt.I.registerSingleton( UserManagerController());
+  GetIt.I.registerSingleton(BaseController());
+  GetIt.I.registerSingleton(UserManagerController());
+  GetIt.I.registerSingleton(CategoryController());
+
 }
 
 class MyApp extends StatelessWidget {
@@ -79,7 +79,8 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(elevation: 0),
         cursorColor: Colors.purple
       ),
-      home: BasePage(),
+      // home: BasePage(),
+      home: CategoryPage(),
     );
   }
 }
