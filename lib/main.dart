@@ -79,8 +79,8 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(elevation: 0),
         cursorColor: Colors.purple
       ),
-      // home: BasePage(),
-      home: CategoryPage(),
+      home: BasePage(),
+      // home: CategoryPage(),
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:olxmobx/components/custom_drawer/custom_drawer.dart';
 import 'package:olxmobx/controllers/create_controller.dart';
+import 'package:olxmobx/pages/create/componentes/category_field.dart';
 import 'package:olxmobx/pages/create/componentes/images_field.dart';
 
 
@@ -46,6 +47,7 @@ class CreatePage extends StatelessWidget {
               ),
               maxLines: null,
             ),
+            CategoryField(createController),
             TextFormField(
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
