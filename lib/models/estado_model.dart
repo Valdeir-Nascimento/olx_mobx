@@ -1,10 +1,10 @@
 class EstadoModel {
   int id;
-  String initials;
+  String sigla;
   String nome;
   EstadoModel({
     this.id,
-    this.initials,
+    this.sigla,
     this.nome,
   });
 
@@ -13,7 +13,7 @@ class EstadoModel {
 
     return EstadoModel(
       id: map['id'],
-      initials: map['initials'],
+      sigla: map['sigla'],
       nome: map['nome'],
     );
   }
@@ -21,11 +21,11 @@ class EstadoModel {
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'initials': initials,
+      'sigla': sigla,
       'nome': nome,
     };
   }
 
   @override
-  String toString() => 'EstadoModel(id: $id, initials: $initials, nome: $nome)';
+  String toString() => 'EstadoModel(id: $id, sigla: $sigla, nome: $nome)';
 }

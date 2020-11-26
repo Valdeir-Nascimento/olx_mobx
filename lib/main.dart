@@ -6,6 +6,7 @@ import 'package:olxmobx/controllers/user_manager_controller.dart';
 import 'package:olxmobx/pages/base/base_page.dart';
 import 'package:olxmobx/pages/category/category_page.dart';
 import 'package:olxmobx/repositories/category_repository.dart';
+import 'package:olxmobx/repositories/cep_repository.dart';
 import 'package:olxmobx/repositories/ibge_repository.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
@@ -14,46 +15,7 @@ void main() async {
   await initializeParse();
   setupLocator();
   runApp(MyApp());
-
-  IBGERepository().getEstados().then((uf)  {
-    // IBGERepository().getCidades(uf.first).then((cidades) => print(cidades));
-    IBGERepository().getEstados().then((value) => print(value));
-  });
-
-  // final category = ParseObject('Categories')
-  //   ..set<String>('Title', 'Meias')
-  //   ..set<int>('Position', 2);
-  // final response = await category.save();
-  // print(response.success);
-
-  // final category = ParseObject('Categories')
-  //   ..objectId = 'yJsiYpHimE'
-  //   ..set<String>('Title', 'Roupas');
-  // final response = await category.save();
-  // print(response.success);
-
-  // final category = ParseObject('Categories')
-  //   ..objectId = 'yJsiYpHimE';
-  //   category.delete();
-
-  // final response = await ParseObject('Categories').getObject('8LgJI9v7CS');
-  // if (response.success)
-  //   print(response.result);
-
-  // final response = await ParseObject('Categories').getAll();
-  // if (response.success) {
-  //   for (final object in response.results) {
-  //     print(object);
-  //   }
-  // }
-
-  // final query = QueryBuilder(ParseObject('Categories'));
-  // query.whereEqualTo('Position', 2);
-  // query.whereContains('Title', 'Meias');
-
-  // final response = await query.query();
-  // if (response.success)
-  //   print(response.result);
+  
 }
 
 Future<void> initializeParse() async {
