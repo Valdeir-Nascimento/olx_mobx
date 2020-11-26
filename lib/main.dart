@@ -14,7 +14,11 @@ void main() async {
   await initializeParse();
   setupLocator();
   runApp(MyApp());
-  IBGERepository().getEstados().then((value) => print(value));
+
+  IBGERepository().getEstados().then((uf)  {
+    // IBGERepository().getCidades(uf.first).then((cidades) => print(cidades));
+    IBGERepository().getEstados().then((value) => print(value));
+  });
 
   // final category = ParseObject('Categories')
   //   ..set<String>('Title', 'Meias')
