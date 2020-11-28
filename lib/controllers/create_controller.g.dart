@@ -162,6 +162,58 @@ mixin _$CreateController on _CreateControllerBase, Store {
     });
   }
 
+  final _$loadingAtom = Atom(name: '_CreateControllerBase.loading');
+
+  @override
+  bool get loading {
+    _$loadingAtom.reportRead();
+    return super.loading;
+  }
+
+  @override
+  set loading(bool value) {
+    _$loadingAtom.reportWrite(value, super.loading, () {
+      super.loading = value;
+    });
+  }
+
+  final _$errorAtom = Atom(name: '_CreateControllerBase.error');
+
+  @override
+  String get error {
+    _$errorAtom.reportRead();
+    return super.error;
+  }
+
+  @override
+  set error(String value) {
+    _$errorAtom.reportWrite(value, super.error, () {
+      super.error = value;
+    });
+  }
+
+  final _$anuncioSalvoAtom = Atom(name: '_CreateControllerBase.anuncioSalvo');
+
+  @override
+  AnuncioModel get anuncioSalvo {
+    _$anuncioSalvoAtom.reportRead();
+    return super.anuncioSalvo;
+  }
+
+  @override
+  set anuncioSalvo(AnuncioModel value) {
+    _$anuncioSalvoAtom.reportWrite(value, super.anuncioSalvo, () {
+      super.anuncioSalvo = value;
+    });
+  }
+
+  final _$_sendAsyncAction = AsyncAction('_CreateControllerBase._send');
+
+  @override
+  Future<void> _send() {
+    return _$_sendAsyncAction.run(() => super._send());
+  }
+
   final _$_CreateControllerBaseActionController =
       ActionController(name: '_CreateControllerBase');
 
@@ -240,6 +292,9 @@ showErros: ${showErros},
 title: ${title},
 description: ${description},
 precoText: ${precoText},
+loading: ${loading},
+error: ${error},
+anuncioSalvo: ${anuncioSalvo},
 imagesValid: ${imagesValid},
 titleValid: ${titleValid},
 descricaoValid: ${descricaoValid},

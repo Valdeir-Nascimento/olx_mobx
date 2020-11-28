@@ -8,6 +8,8 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final LoginController loginController = LoginController();
+    final emailController = TextEditingController(text: "valdeircn11@gmail.com");
+    final senhaController = TextEditingController(text: "123456");
 
     return Scaffold(
       appBar: AppBar(
@@ -66,6 +68,7 @@ class LoginPage extends StatelessWidget {
                   //EMAIL
                   Observer(builder: (_) {
                     return TextField(
+                   
                       enabled: !loginController.loading,
                       decoration: InputDecoration(
                         border: const OutlineInputBorder(),
@@ -108,6 +111,7 @@ class LoginPage extends StatelessWidget {
                   //SENHA
                   Observer(builder: (_) {
                     return TextField(
+                    
                       enabled: !loginController.loading,
                       obscureText: true,
                       decoration: InputDecoration(

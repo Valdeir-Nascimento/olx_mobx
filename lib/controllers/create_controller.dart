@@ -1,6 +1,10 @@
+import 'package:get_it/get_it.dart';
 import 'package:mobx/mobx.dart';
 import 'package:olxmobx/controllers/cep_controller.dart';
+import 'package:olxmobx/controllers/user_manager_controller.dart';
+import 'package:olxmobx/models/anuncio_model.dart';
 import 'package:olxmobx/models/endereco_model.dart';
+import 'package:olxmobx/repositories/anuncio_repository.dart';
 
 import '../models/category_model.dart';
 
@@ -28,6 +32,15 @@ abstract class _CreateControllerBase with Store {
   
   @observable
   String precoText = "";
+
+  @observable
+  bool loading = false;
+
+  @observable
+  String error;
+
+  @observable
+  AnuncioModel anuncioSalvo;
 
   CepController cepController = CepController();
 
@@ -131,7 +144,25 @@ abstract class _CreateControllerBase with Store {
   @computed
   Function get sendPressed => formValid ? _send : null;
 
-  void _send() {
+  @action
+  Future<void> _send() async {
+    final anuncio = AnuncioModel();
+    anuncio.title = title;
+    anuncio.descricao = description;
+    anuncio.category = category;
+    anuncio.preco = preco;
+    anuncio.hidePhone = hidePhone;
+    anuncio.images = images;
+    anuncio.endereco = endereco;
+    anuncio.user = GetIt.I.get<UserManagerController>().user;
+
+    loading = true;
+    try {
+      anuncioSalvo = await AnuncioRepository().salvar(anuncio);
+    } catch (e) {
+      error = e;
+    }
+    loading = false;
 
   }
   

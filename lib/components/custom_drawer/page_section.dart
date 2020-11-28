@@ -16,6 +16,7 @@ class PageSection extends StatelessWidget {
           iconData: Icons.list,
           onTap: () {
             baseController.setPage(0);
+            //Navigator.push(context, MaterialPageRoute(builder: (context) => AnuncioPage()));
           },
           selected: baseController.page == 0,
         ),
