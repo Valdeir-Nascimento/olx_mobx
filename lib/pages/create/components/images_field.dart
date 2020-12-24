@@ -4,8 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:olxmobx/controllers/create_controller.dart';
-import 'package:olxmobx/pages/create/componentes/image_dialog.dart';
-import 'package:olxmobx/pages/create/componentes/image_source_modal.dart';
+import 'package:olxmobx/pages/create/components/image_dialog.dart';
+import 'package:olxmobx/pages/create/components/image_source_modal.dart';
 
 class ImagesField extends StatelessWidget {
   final CreateController createController;

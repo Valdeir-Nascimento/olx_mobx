@@ -40,7 +40,7 @@ abstract class _CreateControllerBase with Store {
   String error;
 
   @observable
-  AnuncioModel anuncioSalvo;
+  bool anuncioSalvo = false;
 
   CepController cepController = CepController();
 
@@ -158,7 +158,8 @@ abstract class _CreateControllerBase with Store {
 
     loading = true;
     try {
-      anuncioSalvo = await AnuncioRepository().salvar(anuncio);
+      await AnuncioRepository().salvar(anuncio);
+      anuncioSalvo = true;
     } catch (e) {
       error = e;
     }

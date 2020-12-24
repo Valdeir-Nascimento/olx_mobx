@@ -195,13 +195,13 @@ mixin _$CreateController on _CreateControllerBase, Store {
   final _$anuncioSalvoAtom = Atom(name: '_CreateControllerBase.anuncioSalvo');
 
   @override
-  AnuncioModel get anuncioSalvo {
+  bool get anuncioSalvo {
     _$anuncioSalvoAtom.reportRead();
     return super.anuncioSalvo;
   }
 
   @override
-  set anuncioSalvo(AnuncioModel value) {
+  set anuncioSalvo(bool value) {
     _$anuncioSalvoAtom.reportWrite(value, super.anuncioSalvo, () {
       super.anuncioSalvo = value;
     });

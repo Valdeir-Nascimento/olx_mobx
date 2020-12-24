@@ -42,7 +42,7 @@ class PageSection extends StatelessWidget {
           iconData: Icons.favorite,
           onTap: () {
             baseController.setPage(3);
-          },
+          }, 
           selected:  baseController.page == 3,
         ),
         PageTile(

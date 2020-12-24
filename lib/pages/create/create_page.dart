@@ -8,10 +8,10 @@ import 'package:olxmobx/components/custom_drawer/custom_drawer.dart';
 import 'package:olxmobx/components/error_box.dart';
 import 'package:olxmobx/controllers/base_controller.dart';
 import 'package:olxmobx/controllers/create_controller.dart';
-import 'package:olxmobx/pages/create/componentes/category_field.dart';
-import 'package:olxmobx/pages/create/componentes/cep_field.dart';
-import 'package:olxmobx/pages/create/componentes/images_field.dart';
-import 'package:olxmobx/pages/create/componentes/phone_field.dart';
+import 'package:olxmobx/pages/create/components/category_field.dart';
+import 'package:olxmobx/pages/create/components/cep_field.dart';
+import 'package:olxmobx/pages/create/components/images_field.dart';
+import 'package:olxmobx/pages/create/components/phone_field.dart';
 
 class CreatePage extends StatefulWidget {
   @override
@@ -24,7 +24,7 @@ class _CreatePageState extends State<CreatePage> {
   @override
   void initState() {
     super.initState();
-    when((_) => createController.anuncioSalvo != null, () {
+    when((_) => createController.anuncioSalvo, () {
       GetIt.I<BaseController>().setPage(0);
     });
   }

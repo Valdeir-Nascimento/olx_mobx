@@ -68,7 +68,7 @@ class LoginPage extends StatelessWidget {
                   //EMAIL
                   Observer(builder: (_) {
                     return TextField(
-                   
+                      //controller: emailController,
                       enabled: !loginController.loading,
                       decoration: InputDecoration(
                         border: const OutlineInputBorder(),
@@ -111,7 +111,7 @@ class LoginPage extends StatelessWidget {
                   //SENHA
                   Observer(builder: (_) {
                     return TextField(
-                    
+                      //controller: senhaController,
                       enabled: !loginController.loading,
                       obscureText: true,
                       decoration: InputDecoration(

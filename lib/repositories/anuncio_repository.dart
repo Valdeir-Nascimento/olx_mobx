@@ -7,7 +7,7 @@ import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:path/path.dart' as path;
 
 class AnuncioRepository {
-  Future<AnuncioModel> salvar(AnuncioModel anuncio) async {
+  Future<void> salvar(AnuncioModel anuncio) async {
 
     try{
       
@@ -42,11 +42,9 @@ class AnuncioRepository {
       anuncioParseObject.set<ParseObject>(keyAnuncioCategory, ParseObject(keyCategoryTable)..set(keyCategoryId, anuncio.category.id));
 
       final response = await anuncioParseObject.save();
-      if(response.success) {
-        return AnuncioModel.fromParse(response.result);
-      } else {
+      if(!response.success) {
         return Future.error(ParseErrors.getDescription(response.error.code));
-      }
+      } 
 
     } catch (e) {
       return Future.error("Falha ao salvar anúncio");
