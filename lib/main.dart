@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:olxmobx/controllers/base_controller.dart';
 import 'package:olxmobx/controllers/category_controller.dart';
+import 'package:olxmobx/controllers/home_controller.dart';
 import 'package:olxmobx/controllers/user_manager_controller.dart';
 import 'package:olxmobx/pages/base/base_page.dart';
 import 'package:olxmobx/pages/category/category_page.dart';
@@ -30,6 +31,7 @@ Future<void> initializeParse() async {
 
 void setupLocator() {
   GetIt.I.registerSingleton(BaseController());
+  GetIt.I.registerSingleton(HomeController());
   GetIt.I.registerSingleton(UserManagerController());
   GetIt.I.registerSingleton(CategoryController());
 }

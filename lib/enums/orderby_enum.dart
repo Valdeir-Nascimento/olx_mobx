@@ -1,0 +1,4 @@
+enum OrderByEnum {
+  DATA,
+  PRECO
+}
